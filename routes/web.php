@@ -39,7 +39,7 @@ Route::controller(AuthController::class)->group(function(){
 
 
     Route::post('/auth/loginF',          'loginF')->name('auth.loginF');
-    Route::post('/auth/registroF',          'loginF')->name('auth.registroF');
+    Route::post('/auth/registroF',          'registroF')->name('auth.registroF');
 
 });
 
