@@ -15,6 +15,11 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function loginF(Request $request){
+
+        
+    }
+
     public function registro()
     {
 

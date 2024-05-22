@@ -23,7 +23,7 @@ Route::get('/', function(){
 
 Route::get('/ayuda', function(){
     return view('ayuda');
-})->name('ayuda');
+})->middleware('auth')->name('ayuda');
 
 
 Route::controller(UsuariosController::class)->group(function(){ 
