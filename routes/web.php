@@ -2,24 +2,15 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\PageController;
 use App\Models\Usuarios;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 
-Route::get('/', function(){
-    return view('welcome');
-});
+// Route::get('/', function(){
+//     return view('welcome');
+// });
 
 Route::get('/ayuda', function(){
     $user = Auth::user();
@@ -29,7 +20,19 @@ Route::get('/ayuda', function(){
 
 Route::controller(UsuariosController::class)->group(function(){ 
 
+    Route::get('/user',        'index')->name('blog');
+    Route::get('/user/profile', 'showProfile')->name('post');
+    
+
+})->middleware('auth');
+
+
+Route::controller(PageController::class) -> group(function(){
+    Route::get('/',           'index')->name('home');  
+
+    Route::get('/{post:slug}', 'post')->name('post');
 });
+
 
 
 

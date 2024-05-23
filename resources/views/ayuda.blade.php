@@ -79,6 +79,7 @@
 </form>
 
 <p>Id del usuario {{ $user->id }}</p>
+<p>Passowrd del usuario {{$user->contrasena}}</p>
 
 
 <h1>Página de Ayuda</h1>
