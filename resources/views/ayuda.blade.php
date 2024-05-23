@@ -73,8 +73,16 @@
     }
 </style>
 
+<form action="{{ route('auth.logout') }}" method="POST">
+    @csrf
+    <button type="submit">Cerrar sesión</button>
+</form>
+
+<p>Id del usuario {{ $user->id }}</p>
+
+
 <h1>Página de Ayuda</h1>
-<p>Bienvenido a la página de ayuda de <strong>[Nombre del Blog]</strong>. Aquí encontrarás respuestas a las preguntas más frecuentes y guías útiles para sacar el máximo provecho de nuestra plataforma. Si no encuentras la información que necesitas, no dudes en contactarnos.</p>
+<p>Bienvenido a la página de ayuda de <strong>{{ $user->correo }}</strong>. Aquí encontrarás respuestas a las preguntas más frecuentes y guías útiles para sacar el máximo provecho de nuestra plataforma. Si no encuentras la información que necesitas, no dudes en contactarnos.</p>
 
 <h2>Preguntas Frecuentes (FAQ)</h2>
 <h3>1. ¿Cómo puedo crear una cuenta?</h3>

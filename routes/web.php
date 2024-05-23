@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UsuariosController;
 use App\Models\Usuarios;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +22,8 @@ Route::get('/', function(){
 });
 
 Route::get('/ayuda', function(){
-    return view('ayuda');
+    $user = Auth::user();
+    return view('ayuda',['user'=>$user]);
 })->middleware('auth')->name('ayuda');
 
 
@@ -40,6 +41,8 @@ Route::controller(AuthController::class)->group(function(){
 
     Route::post('/auth/loginF',          'loginF')->name('auth.loginF');
     Route::post('/auth/registroF',          'registroF')->name('auth.registroF');
+
+    Route::post('/auth/logout',          'logout')->name('auth.logout');
 
 });
 
