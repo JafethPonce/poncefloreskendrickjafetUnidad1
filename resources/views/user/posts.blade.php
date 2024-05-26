@@ -2,9 +2,16 @@
 
 @section('content')
 
-<h1>Muchos posts</h1>
+<h1>Todos los post</h1>
 
-<a href="{{ route('user.post')}}">lorems</a>
+@foreach ( $posts as $post )
+
+    <br>
+
+    <a href="{{ route('post', $post->slug) }}">{{$post->title}}</a>
+    <br>
+
+@endforeach
 
 
 @endsection

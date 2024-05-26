@@ -48,7 +48,6 @@ class AuthController extends Controller
         $nuevo = new Usuarios();
         $nuevo->nombre = $request->nombre;
         $nuevo->correo = $request->correo;
-        // $nuevo->contrasena = Hash::make($request->contrasena);
         $nuevo->contrasena = $request->contrasena;
 
         $nuevo->save();

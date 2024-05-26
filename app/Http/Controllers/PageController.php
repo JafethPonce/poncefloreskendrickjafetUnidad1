@@ -17,6 +17,14 @@ class PageController extends Controller
     }
 
 
+    public function posts()
+    {
+
+        $posts = Posts::all();
+        return view('user.posts', ['posts' => $posts]);
+    }
+
+
     public function post(Posts $post)
     {
 

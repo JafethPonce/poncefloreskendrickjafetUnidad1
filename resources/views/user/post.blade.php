@@ -11,7 +11,4 @@
 <img src="{{$post->image}}" alt="">
 
 
-<p>hola</p>
-
-
 @endsection

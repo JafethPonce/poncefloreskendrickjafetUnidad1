@@ -20,18 +20,34 @@ Route::get('/ayuda', function(){
 
 Route::controller(UsuariosController::class)->group(function(){ 
 
-    Route::get('/user',        'index')->name('blog');
-    Route::get('/user/profile', 'showProfile')->name('post');
-    
+    // Route::get('/user/',        'index')->name('blog');
+    // Route::get('/user/',        'index')->name('blog');
+    // Route::get('/user/',        'index')->name('blog');
+
+    Route::get('/user',        'index')->name('');
+    Route::get('/user/profile', 'showProfile')->name('perfil');
+
 
 })->middleware('auth');
 
 
+
+
 Route::controller(PageController::class) -> group(function(){
     Route::get('/',           'index')->name('home');  
-
-    Route::get('/{post:slug}', 'post')->name('post');
+    Route::get('posts', 'posts')->name('posts')->middleware('auth');
+    Route::get('post/{post:slug}', 'post')->name('post')->middleware('auth');
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -40,11 +56,8 @@ Route::controller(AuthController::class)->group(function(){
 
     Route::get('/auth/login',           'login')->name('auth.login');
     Route::get('/auth/registro',        'registro')->name('auth.registro');
-
-
     Route::post('/auth/loginF',          'loginF')->name('auth.loginF');
     Route::post('/auth/registroF',          'registroF')->name('auth.registroF');
-
     Route::post('/auth/logout',          'logout')->name('auth.logout');
 
 });
