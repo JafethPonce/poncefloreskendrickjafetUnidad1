@@ -20,12 +20,19 @@ Route::get('/ayuda', function(){
 
 Route::controller(UsuariosController::class)->group(function(){ 
 
+
+    Route::get('/user/newpost',    'showFormPost')->name('showFormPost');
+    Route::post('/user/newpostG',    'newPost')->name('newPost');
+
+    Route::get('/user/myposts', 'myPosts')->name('myPosts');
+
+
     // Route::get('/user/',        'index')->name('blog');
     // Route::get('/user/',        'index')->name('blog');
     // Route::get('/user/',        'index')->name('blog');
 
-    Route::get('/user',        'index')->name('');
-    Route::get('/user/profile', 'showProfile')->name('perfil');
+    // Route::get('/user',        'index')->name('');
+    // Route::get('/user/profile', 'showProfile')->name('perfil');
 
 
 })->middleware('auth');

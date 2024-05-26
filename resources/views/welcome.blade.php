@@ -20,4 +20,10 @@
     {{ $posts->links() }}
 
 
+    <style>/* public/css/app.css */
+
+
+</style>
+
+
 @endsection
