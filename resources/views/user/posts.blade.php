@@ -1,17 +1,16 @@
-@extends('shared.template')
+@extends('template')
 
 @section('content')
+    <h1>Listado</h1>
 
-<h1>Todos los post</h1>
+    @foreach ($posts as $post)
+        <p>
+            <strong>{{ $post->id }}</strong>
+            <a href="{{ route('post', $post->slug) }}">{{ $post->title }}</a>
+            <span>{{ $post->user->name }}</span>
+        </p>
+    @endforeach
 
-@foreach ( $posts as $post )
-
-    <br>
-
-    <a href="{{ route('post', $post->slug) }}">{{$post->title}}</a>
-    <br>
-
-@endforeach
-
-
+    <!-- Mostramos la paginación -->
+    {{ $posts->links() }}
 @endsection

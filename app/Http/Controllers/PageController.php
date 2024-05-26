@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function index(){
 
-        $posts = Posts::all();
+        $posts = Posts::with('user')->paginate(10);
 
         return view('welcome', ['posts' => $posts]);
     }
@@ -20,7 +20,7 @@ class PageController extends Controller
     public function posts()
     {
 
-        $posts = Posts::all();
+        $posts = Posts::all()->paginate(10);
         return view('user.posts', ['posts' => $posts]);
     }
 
