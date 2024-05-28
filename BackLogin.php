@@ -55,10 +55,10 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
                 $_SESSION['psw'] = $campo['psw'];
                 $_SESSION['id_rol'] = $campo['id_rol'];
 
-                if ($_SESSION['id_rol' == 1]) {
-                    header("location:vistas/administrador/index.php");
+                if ($_SESSION['id_rol'] == 1) {
+                    return header("location:vistas/administrador/index.php");
                 } else {
-                    header("location:vistas/usuarios/index.php");
+                    return header("location:vistas/usuarios/index.php");
                 }
             } else {
                 echo 'Contraseña incorrecta';
