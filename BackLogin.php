@@ -53,7 +53,13 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
                 $_SESSION['nombre'] = $campo['nombre'];
                 $_SESSION['apellidos'] = $campo['apellidos'];
                 $_SESSION['psw'] = $campo['psw'];
-                header("location:vistas/usuarios/index.php");
+                $_SESSION['id_rol'] = $campo['id_rol'];
+
+                if ($_SESSION['id_rol' == 1]) {
+                    header("location:vistas/administrador/index.php");
+                } else {
+                    header("location:vistas/usuarios/index.php");
+                }
             } else {
                 echo 'Contraseña incorrecta';
             }
@@ -70,4 +76,3 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
 }
 
 ob_end_flush();
-?>

@@ -79,9 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
       if (empty($errors)) {
+        $id_rol = 2;
         // Si no hay errores, procesar los datos (por ejemplo, guardarlos en la base de datos)
-        $sql = $cnnPDO->prepare("INSERT INTO Info_User (nombre, apellidos, celular,email, psw) VALUES (:nombre,:apellidos,:celular,:email, :psw)");
-
+        $sql = $cnnPDO->prepare("INSERT INTO Info_User (nombre, apellidos, celular,email, psw, id_rol) VALUES (:nombre,:apellidos,:celular,:email, :psw, :id_rol)");
+        $sql->bindParam(':id_rol', $id_rol);
         $sql->bindParam(':nombre', $nombre);
         $sql->bindParam(':apellidos', $apellidos);
         $sql->bindParam(':celular', $celular);
